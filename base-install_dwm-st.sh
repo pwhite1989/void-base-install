@@ -35,7 +35,7 @@ chmod +x .scripts/xsetloop.sh
 cat <<! > .xinitrc
 xrandr --output Virtual1 --mode 2560x1440
 ${HOME}/.fehbg
-sh ${HOME/.scripts/xsetloop.sh &
+sh ${HOME}/.scripts/xsetloop.sh &
 setxkbmap -layout gb
 exec dwm
 !
