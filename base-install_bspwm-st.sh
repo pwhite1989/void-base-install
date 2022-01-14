@@ -65,7 +65,7 @@ unzip JetBrainsMono.zip -d JetBrainsMono
 mv JetBrainsMono /usr/share/fonts
 fc-cache -fv
 
-ehco 'xrdb merge xresources' >> .bashrc
+ehco 'xrdb merge ${HOME}/st/xresources' >> .bashrc
 source .bashrc
 xrandr --output Virtual1 --mode 2560x1440
 
