@@ -16,7 +16,7 @@ ln -s /etc/sv/{dbus,elogind,polkitd} /var/service/
 xbps-install -Sy make pkg-config cparser
 
   # Install the WM and tools
-xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git dmenu xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat
+xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch
   # Organise folders and put in wm config
 xdg-user-dirs-update
 mkdir -p .config/{bspwm,sxhkd}
@@ -58,6 +58,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsM
 mkdir JetBrainsMono
 unzip JetBrainsMono.zip -d JetBrainsMono
 mv JetBrainsMono /usr/share/fonts
+fc-cache -fv
 
   # Link the lightdm service
 ln -s /etc/sv/lightdm /var/service/
