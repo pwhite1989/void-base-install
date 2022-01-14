@@ -42,8 +42,10 @@ rm wmAddons
 wget git.io/voidlinux -O void.png
 feh --bg-scale void.png
 
+DISPLAY=$(xrandr -q | awk '/connected primary/{print $1}')
+
 cat <<! > .xinitrc
-xrandr --output Virtual1 --mode 2560x1440
+xrandr --output ${DISPLAY} --mode 2560x1440
 ${HOME}/.fehbg
 setxkbmap -layout gb
 sxhkd &
@@ -67,7 +69,6 @@ fc-cache -fv
 
 ehco 'xrdb merge ${HOME}/st/xresources' >> .bashrc
 source .bashrc
-xrandr --output Virtual1 --mode 2560x1440
 
   # Make sure all folders are owned by the user
 chown -R ${USER}:${USER} ${HOME}
