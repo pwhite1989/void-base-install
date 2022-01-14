@@ -21,12 +21,21 @@ mkdir -p .scripts
 
 cat <<! > .scripts/xsetloop.sh
 #!/bin/bash
-!
-chmod +x .scripts/xsetloop.sh
 
+_w$(curl wttr.in?format=1)
+
+while : ; do
+        xsetroot -name " ${_w} | $(date '+%b %d %a') | $(date +%H:%M)"
+        sleep 1
+done
+!
+
+chmod +x .scripts/xsetloop.sh
 
 cat <<! > .xinitrc
 xrandr --output Virtual1 --mode 2560x1440
 ${HOME}/.fehbg
+sh ${HOME/.scripts/xsetloop.sh &
 setxkbmap -layout gb
 exec dwm
+!
