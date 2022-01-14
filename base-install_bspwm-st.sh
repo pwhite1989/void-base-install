@@ -1,4 +1,7 @@
 #!/bin/bash
+
+HOME=/home/paddle
+
 # Login as root
 xbps-install -Suy
   # run again
@@ -18,6 +21,7 @@ xbps-install -Sy make pkg-config cparser
   # Install the WM and tools
 xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch
   # Organise folders and put in wm config
+cd ${HOME}
 xdg-user-dirs-update
 mkdir -p .config/{bspwm,sxhkd}
 install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
@@ -53,12 +57,14 @@ sudo make install
 xrdb merge xresources
 
   # Installing the font
-cd ~/Downloads
+cd ${HOME}/Downloads
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 mkdir JetBrainsMono
 unzip JetBrainsMono.zip -d JetBrainsMono
 mv JetBrainsMono /usr/share/fonts
 fc-cache -fv
+
+xrandr --output Virtual1 --mode 2560x1440
 
   # Link the lightdm service
 ln -s /etc/sv/lightdm /var/service/
