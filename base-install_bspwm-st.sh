@@ -1,6 +1,7 @@
 #!/bin/bash
 
-HOME=/home/paddle
+read -p "Enter your username: " USER
+HOME=/home/${USER}
 
 # Login as root
 xbps-install -Suy
@@ -65,6 +66,9 @@ mv JetBrainsMono /usr/share/fonts
 fc-cache -fv
 
 xrandr --output Virtual1 --mode 2560x1440
+
+  # Make sure all folders are owned by the user
+chown -R ${USER}:${USER} ${HOME}
 
   # Link the lightdm service
 ln -s /etc/sv/lightdm /var/service/
