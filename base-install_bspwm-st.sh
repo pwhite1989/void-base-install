@@ -1,6 +1,7 @@
 #!/bin/bash
 
 read -p "Enter your username: " USER
+read -p "Enter your desired screen resolution (i.e. 2560x1440): " RESOLUTION
 HOME=/home/${USER}
 
 # Login as root
@@ -45,7 +46,7 @@ feh --bg-scale void.png
 DISPLAY=$(xrandr -q | awk '/connected primary/{print $1}')
 
 cat <<! > .xinitrc
-xrandr --output ${DISPLAY} --mode 2560x1440
+xrandr --output ${DISPLAY} --mode ${RESOLUTION}
 ${HOME}/.fehbg
 setxkbmap -layout gb
 sxhkd &
@@ -72,6 +73,13 @@ source .bashrc
 
   # Make sure all folders are owned by the user
 chown -R ${USER}:${USER} ${HOME}
+
+  # TODO Polybar Config
+  # TODO Rofi Config
+  # TODO Picom Config
+  # TODO CLI Tools/Ranger Config
+  # TODO .bashrc config
+  # TODO nvchad install and config
 
   # Link the lightdm service
 ln -s /etc/sv/lightdm /var/service/
