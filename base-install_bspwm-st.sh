@@ -5,23 +5,23 @@ read -p "Enter your desired screen resolution (i.e. 2560x1440): " RESOLUTION
 HOME=/home/${USER}
 
 # Login as root
-xbps-install -Suy
+xbps-install -Suy &&
   # run again
-xbps-install -Suy
+xbps-install -Suy &&
 
   # Core installation
   # Seat manager: elogind (includes dbus by default)
   # Policy Manager: polkit
-xbps-install -Sy elogind polkit
+xbps-install -Sy elogind polkit &&
 
   # Link the services to enable them
 ln -s /etc/sv/{dbus,elogind,polkitd} /var/service/
 
   # Install C compilers
-xbps-install -Sy make pkg-config cparser
+xbps-install -Sy make pkg-config cparser &&
 
   # Install the WM and tools
-xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch svn fzf
+xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch svn fzf &&
   # Organise folders and put in wm config
 cd ${HOME}
 xdg-user-dirs-update
@@ -54,20 +54,20 @@ exec bspwm
 !
 
   # Installing the st terminal
-xbps-install -Sy libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel
-git clone https://github.com/siduck/st.git
+xbps-install -Sy libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel &&
+git clone https://github.com/siduck/st.git &&
 cd ${HOME}/st
 sudo make install 
 xrdb merge xresources
 
   # Installing the fonts
 cd ${HOME}/Downloads
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip &&
 mkdir JetBrainsMono
 unzip JetBrainsMono.zip -d JetBrainsMono
 mv JetBrainsMono /usr/share/fonts
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip &&
 mkdir Iosevka
 unzip Iosevka.zip -d Iosevka
 mv Iosevka /usr/share/fonts
@@ -93,7 +93,7 @@ ranger --copy-config=scope
 
   # Polybar Config
 svn https://github.com/siduck/dotfiles/trunk/polybar/ .config/polybar
-xbps-install -Sy xprop wmctrl slop
+xbps-install -Sy xprop wmctrl slop &&
 sed -i 's/killall -q/pkill/g' .config/polybar/launch.sh
 sed -i 's|eDP1|'"${DISPLAY}"'|g' .config/polybar/config
     
@@ -110,7 +110,7 @@ svn https://github.com/siduck/dotfiles/trunk/picom/ .config/picom
   # TODO .bashrc config
     #Install logo-ls
 cd ${HOME}/Downloads
-wget https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_Linux_x86_64.tar.gz
+wget https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_Linux_x86_64.tar.gz &&
 tar -xzf logo-ls_Linux_x86_64.tar.gz
 cd logo-ls_Linux_x86_64
 cp logo-ls /usr/local/bin
