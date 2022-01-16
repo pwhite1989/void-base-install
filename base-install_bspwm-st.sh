@@ -81,6 +81,7 @@ source .bashrc
   # TODO Polybar Config
 svn https://github.com/siduck/dotfiles/trunk/polybar/ .config
 xbps-install -S xprop wmctrl slop
+sed 's/kill -q/pkill/g' .config/polybar/launch.sh
     
   # TODO Rofi Config
 svn https://github.com/siduck/dotfiles/trunk/rofi/ .config
