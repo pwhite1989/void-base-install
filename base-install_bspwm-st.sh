@@ -21,7 +21,7 @@ ln -s /etc/sv/{dbus,elogind,polkitd} /var/service/
 xbps-install -Sy make pkg-config cparser &&
 
   # Install the WM and tools
-xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch svn fzf &&
+xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch subversion fzf &&
   # Organise folders and put in wm config
 cd ${HOME}
 xdg-user-dirs-update
