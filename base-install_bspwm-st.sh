@@ -6,6 +6,10 @@ read -p "Enter your desired screen resolution (i.e. 2560x1440): " RESOLUTION
 RESOLUTION=${RESOLUTION:-1920x1080}
 USERHOME=/home/${USERNAME}
 
+echo ${USERNAME}
+echo ${RESOLUTION}
+echo ${USERHOME}
+
 # Login as root
 xbps-install -Suy &&
   # run again
@@ -20,29 +24,25 @@ xbps-install -Sy elogind polkit &&
 ln -s /etc/sv/{dbus,elogind,polkitd} /var/service/
 
   # Install C compilers, the WM and tools
-xbps-install -Sy make pkg-config cparser xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch subversion fzf &&
+xbps-install -Sy make pkg-config cparser xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch subversion fzf tabbed &&
 
   # Organise folders and put in wm config
 cd ${USERHOME}
 xdg-user-dirs-update
 mkdir -p .config/{bspwm,sxhkd}
-mkdir -p Downloads
-install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
-install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/
-sed -i 's/urxvt/st/g' .config/sxhkd/sxhkdrc
+mkdir -p {Downloads,Pictures}
 
-cat <<! > wmAddons
+  # Bspwm config
+svn checkout https://github.com/siduck/dotfiles/trunk/bspwm/ .config/bspwm
+sed -i '22d' .config/bspwm/bspwmrc
+sed -i '22i feh --bg-scale ~/void.png &' .config/bspwm/bspwmrc
+sed -i '20i setxkbmap GB &' .config/bspwm/bspwmrc
+sed -i '3d' .config/bspwm/bspwmrc
 
-setxkbmap GB &
-${USERHOME}/.fehbg
-picom
-!
-
-sed -i '/sxhkd/ r wmAddons' .config/bspwm/bspwmrc
-rm wmAddons
+  # Sxhkd config
+svn checkout https://github.com/siduck/dotfiles/trunk/sxhkd/ .config/sxhkd
 
 wget git.io/voidlinux -O void.png
-feh --bg-scale void.png
 
 DISPLAY=$(xrandr -q | awk '/connected primary/{print $1}')
 
@@ -77,16 +77,12 @@ fc-cache -fv
 cd ${USERHOME}
 
   # get some configuration folders
-cd .config  
-mkdir {gtk,alsa_stuff,eww}
 svn checkout https://github.com/siduck/dotfiles/trunk/gtk/ .config/gtk
 svn checkout https://github.com/siduck/dotfiles/trunk/alsa_stuff/ .config/alsa_stuff
 svn checkout https://github.com/siduck/dotfiles/trunk/eww/ .config/eww
-cd ${USERHOME}
 
   # Ranger installation
 xbps-install -Sy ranger
-mkdir .config/ranger
 svn checkout https://github.com/siduck/dotfiles/trunk/cli_tools/ranger .config/ranger
 ranger --copy-config=rifle
 ranger --copy-config=commands
