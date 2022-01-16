@@ -1,8 +1,10 @@
 #!/bin/bash
 
-read -p "Enter your username: " USER
+read -p "Enter your username: " USERNAME
+USERNAME=${USERNAME:-paddle}
 read -p "Enter your desired screen resolution (i.e. 2560x1440): " RESOLUTION
-HOME=/home/${USER}
+RESOLUTION=${RESOLUTION:-1920x1080}
+USERHOME=/home/${USERNAME}
 
 # Login as root
 xbps-install -Suy &&
@@ -23,7 +25,7 @@ xbps-install -Sy make pkg-config cparser &&
   # Install the WM and tools
 xbps-install -Sy xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch subversion fzf &&
   # Organise folders and put in wm config
-cd ${HOME}
+cd ${USERHOME}
 xdg-user-dirs-update
 mkdir -p .config/{bspwm,sxhkd}
 install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
@@ -33,7 +35,7 @@ sed -i 's/urxvt/st/g' .config/sxhkd/sxhkdrc
 cat <<! > wmAddons
 
 setxkbmap GB &
-${HOME}/.fehbg
+${USERHOME}/.fehbg
 picom
 !
 
@@ -47,7 +49,7 @@ DISPLAY=$(xrandr -q | awk '/connected primary/{print $1}')
 
 cat <<! > .xinitrc
 xrandr --output ${DISPLAY} --mode ${RESOLUTION}
-${HOME}/.fehbg
+${USERHOME}/.fehbg
 setxkbmap -layout gb
 sxhkd &
 exec bspwm
@@ -56,12 +58,12 @@ exec bspwm
   # Installing the st terminal
 xbps-install -Sy libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel &&
 git clone https://github.com/siduck/st.git &&
-cd ${HOME}/st
+cd ${USERHOME}/st
 sudo make install 
 xrdb merge xresources
 
   # Installing the fonts
-cd ${HOME}/Downloads
+cd ${USERHOME}/Downloads
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip &&
 mkdir JetBrainsMono
 unzip JetBrainsMono.zip -d JetBrainsMono
@@ -73,7 +75,7 @@ unzip Iosevka.zip -d Iosevka
 mv Iosevka /usr/share/fonts
 fc-cache -fv
 
-cd ${HOME}
+cd ${USERHOME}
 
   # get some configuration folders
 cd .config  
@@ -81,7 +83,7 @@ mkdir {gtk,alsa_stuff,eww}
 svn https://github.com/siduck/dotfiles/trunk/gtk/ .config/gtk
 svn https://github.com/siduck/dotfiles/trunk/alsa_stuff/ .config/alsa_stuff
 svn https://github.com/siduck/dotfiles/trunk/eww/ .config/eww
-cd ${HOME}
+cd ${USERHOME}
 
   # Ranger installation
 xbps-install -Sy ranger
@@ -109,13 +111,13 @@ svn https://github.com/siduck/dotfiles/trunk/picom/ .config/picom
 
   # TODO .bashrc config
     #Install logo-ls
-cd ${HOME}/Downloads
+cd ${USERHOME}/Downloads
 wget https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_Linux_x86_64.tar.gz &&
 tar -xzf logo-ls_Linux_x86_64.tar.gz
 cd logo-ls_Linux_x86_64
 cp logo-ls /usr/local/bin
 cp logo-ls.1.gz /usr/share/man/man1/
-cd ${HOME}
+cd ${USERHOME}
 cat <<! > .bashrc
 # draw horiz line under prompt
 draw_line() {
@@ -148,7 +150,7 @@ export FZF_DEFAULT_OPTS='
   --border
   --color border:#646a76'
   
-xrdb merge ${HOME}/st/xresources
+xrdb merge ${USERHOME}/st/xresources
 !
   
   # TODO nvchad install and config
@@ -158,7 +160,7 @@ rm .config/.svn
   # TODO install eww https://elkowar.github.io/eww/
 
   # Make sure all folders are owned by the user
-chown -R ${USER}:${USER} ${HOME}
+chown -R ${USERNAME}:${USERNAME} ${USERHOME}
 
 source .bashrc
 
