@@ -78,22 +78,63 @@ cd ${HOME}
 ehco 'xrdb merge ${HOME}/st/xresources' >> .bashrc
 source .bashrc
 
-  # TODO Polybar Config
+  # Polybar Config
 svn https://github.com/siduck/dotfiles/trunk/polybar/ .config
-xbps-install -S xprop wmctrl slop
-sed 's/kill -q/pkill/g' .config/polybar/launch.sh
+xbps-install -Sy xprop wmctrl slop
+sed -i 's/killall -q/pkill/g' .config/polybar/launch.sh
     
-  # TODO Rofi Config
+  # Rofi Config
 svn https://github.com/siduck/dotfiles/trunk/rofi/ .config
 sed -i 's/Sarasa Nerd Font 14/Iosevka 12/g' .config/rofi/config.rasi
 sed -i 's/forest/onedark/g' .config/rofi/config.rasi
 
-  # TODO Picom Config
+  # Picom Config
 svn https://github.com/siduck/dotfiles/trunk/picom/ .config
 
   # TODO CLI Tools/Ranger Config
 
   # TODO .bashrc config
+    #Install logo-ls
+cd ${HOME}/Downloads
+wget https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_Linux_x86_64.tar.gz
+tar -xzf logo-ls_Linux_x86_64.tar.gz
+cd logo-ls_Linux_x86_64
+cp logo-ls /usr/local/bin
+cp logo-ls.1.gz /usr/share/man/man1/
+cd ${HOME}
+cat <<! > .bashrc
+# draw horiz line under prompt
+draw_line() {
+  local COLUMNS="$COLUMNS"
+  while ((COLUMNS-- > 0)); do
+    printf '\e[30m\u2500'
+  done
+}
+
+# prompt
+PS1="\[\033[32m\]  \[\033[37m\]\[\033[34m\]\w \[\033[0m\]"
+PS2="\[\033[32m\]  > \[\033[0m\]"
+
+# bash history
+HISTSIZE=
+HISTFILESIZE=
+
+alias ls='logo-ls'
+alias la='logo-ls -A'
+alias ll='logo-ls -al'
+# equivalents with Git Status on by Default
+alias lsg='logo-ls -D'
+alias lag='logo-ls -AD'
+alias llg='logo-ls -alD'
+
+export FZF_DEFAULT_OPTS='
+  --color fg:#646a76
+  --color bg+:#7797b7,fg+:#2c2f30,hl:#D8DEE9,hl+:#26292a,gutter:#3a404c
+  --color pointer:#373d49,info:#606672
+  --border
+  --color border:#646a76'
+!
+  
   # TODO nvchad install and config
 
 rm .config/.svn
