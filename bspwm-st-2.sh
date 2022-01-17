@@ -33,9 +33,11 @@ svn checkout https://github.com/siduck/dotfiles/trunk/picom/ .config/picom
 
   
   # TODO nvchad install and config
-
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
   # TODO install eww https://elkowar.github.io/eww/
 
 
 rm -rf .config/{bspwm,gtk,alsa_stuff,eww,ranger,polybar,rofi,picom}/.svn
 source .bashrc
+source .xinitrc
