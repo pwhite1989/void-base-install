@@ -1,5 +1,9 @@
 #!/bin/bash
 
+xdg-user-dirs-update
+
+wget https://raw.githubusercontent.com/siduck/dotfiles/master/.Xresources
+
 DISPLAYNAME=$(xrandr -q | awk '/connected primary/{print $1}')
 DISPLAYNAME=${DISPLAYNAME:-Virtual1}
 
@@ -15,7 +19,7 @@ ranger --copy-config=commands
 ranger --copy-config=scope
 
   # Polybar Config
-svn checkout https://github.com/siduck/dotfiles/trunk/polybar/ .config/polybar
+svn checkout https://github.com/siduck/dotfiles/trunk/polybar/polybar .config/polybar
 sed -i 's/killall -q/pkill/g' .config/polybar/launch.sh
 sed -i 's|eDP1|'"${DISPLAYNAME}"'|g' .config/polybar/config
     
@@ -33,5 +37,5 @@ svn checkout https://github.com/siduck/dotfiles/trunk/picom/ .config/picom
   # TODO install eww https://elkowar.github.io/eww/
 
 
-
+rm -rf .config/{bspwm,gtk,alsa_stuff,eww,ranger,polybar,rofi,picom}/.svn
 source .bashrc
