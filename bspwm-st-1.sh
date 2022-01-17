@@ -36,13 +36,13 @@ xbps-install -Suy &&
   # Core installation
   # Seat manager: elogind (includes dbus by default)
   # Policy Manager: polkit
-xbps-install -Sy elogind polkit &&
+xbps-install -Sy elogind polkit chrony &&
 
   # Link the services to enable them
-ln -s /etc/sv/{dbus,elogind,polkitd} /var/service/
+ln -s /etc/sv/{dbus,elogind,polkitd,chronyd} /var/service/
 
   # Install C compilers, the WM and tools
-xbps-install -Sy make pkg-config cparser xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch ranger subversion fzf tabbed xprop wmctrl slop neovim &&
+xbps-install -Sy make pkg-config cparser xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch ranger subversion htop fzf tabbed xprop wmctrl slop neovim &&
 
   # Organise folders and put in wm config
 cd ${USERHOME}
@@ -79,13 +79,12 @@ for f in /etc/X11/xinit/xinitrc.d/*; do
   unset f
 fi
 
-xrandr --output foo --mode bar
+xrandr --output Virtual1 --mode bar
 ${USERHOME}/.fehbg
 setxkbmap -layout gb
 exec bspwm
 EOF
 
-sed -i 's|foo|'"${DISPLAYNAME}"'|g' .xinitrc
 sed -i 's|bar|'"${RESOLUTION}"'|g' .xinitrc
 
   # Installing the st terminal
