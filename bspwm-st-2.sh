@@ -7,6 +7,8 @@ wget https://raw.githubusercontent.com/siduck/dotfiles/master/.Xresources
 DISPLAYNAME=$(xrandr -q | awk '/connected primary/{print $1}')
 DISPLAYNAME=${DISPLAYNAME:-Virtual1}
 
+sed -i 's|Virtual1|'"${DISPLAYNAME}"'|g' .xinitrc
+
   # get some configuration folders
 svn checkout https://github.com/siduck/dotfiles/trunk/gtk/ .config/gtk
 svn checkout https://github.com/siduck/dotfiles/trunk/alsa_stuff/ .config/alsa_stuff
