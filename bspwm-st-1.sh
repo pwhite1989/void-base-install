@@ -3,11 +3,11 @@
 printf "Enter your username: "
 read USERNAME
 USERNAME=${USERNAME:-paddle}
-printf "Username set to: " ${USERNAME}
+printf "Username set to: ${USERNAME}\n"
 printf "Enter your desired screen resolution (i.e. 2560x1440): "
 read RESOLUTION
 RESOLUTION=${RESOLUTION:-1920x1080}
-printf "Screen resolution set to: " ${RESOLUTION}
+printf "Screen resolution set to: ${RESOLUTION}\n"
 printf "Are you installing in a Virtual Machine? (y/n) "
 read VM
 case VM in
@@ -25,7 +25,7 @@ case VM in
   ;;
 esac
 
-printf "Display set to: " ${VM}
+printf "Display set to: ${VM}\n"
 USERHOME=/home/${USERNAME}
 
 # Login as root
