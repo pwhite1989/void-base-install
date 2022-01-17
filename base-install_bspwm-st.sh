@@ -40,7 +40,9 @@ sed -i '20i setxkbmap GB &' .config/bspwm/bspwmrc
 sed -i '3d' .config/bspwm/bspwmrc
 
   # Sxhkd config
-svn checkout https://github.com/siduck/dotfiles/trunk/sxhkd/ .config/sxhkd
+mkdir -p .config/sxhkd
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/
+sed -i 's/urxvt/st/g' .config/sxhkd/sxhkdrc
 
 wget git.io/voidlinux -O void.png
 
