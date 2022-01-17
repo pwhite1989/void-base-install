@@ -47,6 +47,7 @@ sed -i 's/urxvt/st/g' .config/sxhkd/sxhkdrc
 wget git.io/voidlinux -O void.png
 
 DISPLAYNAME=$(xrandr -q | awk '/connected primary/{print $1}')
+DISPLAYNAME=${DISPLAYNAME:-Virtual1}
 
 cat <<EOF > .xinitrc
 #!/bin/sh
