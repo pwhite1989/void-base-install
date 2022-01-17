@@ -44,15 +44,31 @@ svn checkout https://github.com/siduck/dotfiles/trunk/sxhkd/ .config/sxhkd
 
 wget git.io/voidlinux -O void.png
 
-DISPLAY=$(xrandr -q | awk '/connected primary/{print $1}')
+DISPLAYNAME=$(xrandr -q | awk '/connected primary/{print $1}')
 
-cat <<! > .xinitrc
-xrandr --output ${DISPLAY} --mode ${RESOLUTION}
+cat <<EOF > .xinitrc
+#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+if [ -d /etc/X11/xinit/xinitrc.d ];
+then
+for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+xrandr --output foo --mode bar
 ${USERHOME}/.fehbg
 setxkbmap -layout gb
-sxhkd &
 exec bspwm
-!
+EOF
+
+sed -i 's|foo|'"${DISPLAYNAME}"'|g' .xinitrc
+sed -i 's|bar|'"${RESOLUTION}"'|g' .xinitrc
 
   # Installing the st terminal
 xbps-install -Sy libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel &&
@@ -92,7 +108,7 @@ ranger --copy-config=scope
 svn checkout https://github.com/siduck/dotfiles/trunk/polybar/ .config/polybar
 xbps-install -Sy xprop wmctrl slop &&
 sed -i 's/killall -q/pkill/g' .config/polybar/launch.sh
-sed -i 's|eDP1|'"${DISPLAY}"'|g' .config/polybar/config
+sed -i 's|eDP1|'"${DISPLAYNAME}"'|g' .config/polybar/config
     
   # Rofi Config
 svn checkout https://github.com/siduck/dotfiles/trunk/rofi/ .config/rofi
