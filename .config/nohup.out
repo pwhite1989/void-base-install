@@ -1,0 +1,91 @@
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /home/paddle/.mozilla/firefox/v1bnr12g.default-default/search.json.mozlz4", (void 0)))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/home/paddle/.mozilla/firefox/v1bnr12g.default-default/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://github.githubassets.com/assets/webgl-globe-df1be941.js, line 2827: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+JavaScript warning: , line 0: Script terminated by timeout at:
+
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://github.githubassets.com/assets/webgl-globe-df1be941.js, line 2827: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+JavaScript error: , line 0: AbortError: The fetching process for the media resource was aborted by the user agent at the user's request.
+JavaScript error: , line 0: AbortError: The fetching process for the media resource was aborted by the user agent at the user's request.
+JavaScript error: , line 0: AbortError: The fetching process for the media resource was aborted by the user agent at the user's request.
+JavaScript error: , line 0: AbortError: The fetching process for the media resource was aborted by the user agent at the user's request.
+JavaScript warning: https://github.githubassets.com/assets/webgl-globe-df1be941.js, line 2827: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 1115: NS_ERROR_FAILURE: Ignore PDF.js for this download.
+JavaScript warning: https://www.redditstatic.com/accountmanager/ssoOneTap.2e19bfdcbac4b3db012d.js, line 1: unreachable code after return statement
+JavaScript warning: https://www.redditstatic.com/accountmanager/ssoOneTap.2e19bfdcbac4b3db012d.js, line 1: unreachable code after return statement
+JavaScript warning: https://www.redditstatic.com/accountmanager/ssoOneTap.2e19bfdcbac4b3db012d.js, line 1: unreachable code after return statement
+JavaScript warning: https://www.redditstatic.com/accountmanager/ssoOneTap.2e19bfdcbac4b3db012d.js, line 1: unreachable code after return statement
+JavaScript error: https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js, line 1: TypeError: Error.captureStackTrace is not a function
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: https://www.redditstatic.com/desktop2x/PostCreation~Reddit~StandalonePostPage~Subreddit~reddit-components-ClassicPost~reddit-components-Com~82e48dd3.a50c7f924dc464fb22bc.js, line 1: TypeError: Not in fullscreen mode
+ATTENTION: default value of option mesa_glthread overridden by environment.
+Crash Annotation GraphicsCriticalError: |[C0][GFX1-]: Couldn't sanitize RENDERER device: SVGA3D; build: RELEASE;  LLVM; (t=1176.88) [GFX1-]: Couldn't sanitize RENDERER device: SVGA3D; build: RELEASE;  LLVM;
+JavaScript warning: https://www.redditstatic.com/reddit-init.en.bzioPNo_3po.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Crash Annotation GraphicsCriticalError: |[C0][GFX1-]: Couldn't sanitize RENDERER device: SVGA3D; build: RELEASE;  LLVM; (t=1176.88) |[C1][GFX1-]: Couldn't sanitize RENDERER device: SVGA3D; build: RELEASE;  LLVM; (t=1176.88) [GFX1-]: Couldn't sanitize RENDERER device: SVGA3D; build: RELEASE;  LLVM;
+JavaScript warning: https://www.redditstatic.com/desktop2x/Chat~Governance~Reddit.94135abd9826cdb1906e.js, line 1: Script terminated by timeout at:
+$@https://www.redditstatic.com/desktop2x/Chat~Governance~Reddit.94135abd9826cdb1906e.js:1:805494
+subredditAboutInfo@https://www.redditstatic.com/desktop2x/CommentsPage.66fb49a7cd2ba22caf1f.js:1:59316
+./node_modules/reselect/es/index.js/a/</l<@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:818972
+./node_modules/reselect/es/index.js/i/<@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:818296
+r@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:734977
+./node_modules/react-redux/es/index.js/P/</r.mapToProps@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:735114
+r@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:734977
+./node_modules/react-redux/es/index.js/F/<@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:736315
+./node_modules/react-redux/es/index.js/T/</h/z<@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:733343
+useMemo@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:666537
+useMemo@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:778639
+h@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:733288
+Fi@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:662841
+_s@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:669882
+ms@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:669701
+ps@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:669420
+Qa@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:709269
+Ha@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:691410
+za@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:688433
+Na@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:687004
+./node_modules/react-dom/cjs/react-dom.production.min.js/_o/<@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:649258
+./node_modules/react-dom/node_modules/scheduler/cjs/scheduler.production.min.js/t.unstable_runWithPriority@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:723796
+ho@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:648986
+_o@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:649205
+bo@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:649138
+La@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:687333
+./src/lib/fastdom/index.ts/t.a</this.executeBatch@https://www.redditstatic.com/desktop2x/Chat~Governance~Reddit.94135abd9826cdb1906e.js:1:129115
+r@https://www.redditstatic.com/desktop2x/vendors~Chat~Governance~Reddit.a8583ce72d009653a268.js:1:17158
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390012,name=PContent::Msg_ReinitRenderingForDeviceReset) Channel error: cannot send/recv
+
