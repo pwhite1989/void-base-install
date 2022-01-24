@@ -1,0 +1,52 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/paddle/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+#
+# draw horiz line under prompt
+draw_line() {
+	  local COLUMNS="$COLUMNS"
+	    while ((COLUMNS-- > 0)); do
+		        printf '\e[30m\u2500'
+			  done
+		  }
+
+
+# my prompt
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
+setopt prompt_subst
+
+PS1=$'%F{green}%}  %(?.%F{blue}%~ ${vcs_info_msg_0_} .%F{red}%~ ☣ ) %f'
+zstyle ':vcs_info:git:*' formats '%F{red}(%b)%f'
+zstyle ':vcs_info:*' enable git
+PS2=$'%F{green}   > %f'
+
+alias ls='logo-ls'
+alias la='logo-ls -A'
+alias ll='logo-ls -al'
+# equivalents with Git Status on by Default
+alias lsg='logo-ls -D'
+alias lag='logo-ls -AD'
+alias llg='logo-ls -alD'
+
+export FZF_DEFAULT_OPTS='
+  --color fg:#646a76
+  --color bg+:#7797b7,fg+:#2c2f30,hl:#D8DEE9,hl+:#26292a,gutter:#3a404c
+  --color pointer:#373d49,info:#606672
+  --border
+  --color border:#646a76'
+
+xrdb merge /home/paddle/st/xresources
