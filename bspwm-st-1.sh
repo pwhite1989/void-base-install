@@ -43,7 +43,7 @@ xbps-install -Sy elogind polkit chrony &&
 ln -s /etc/sv/{dbus,elogind,polkitd,chronyd} /var/service/
 
   # Install C compilers, the WM and tools
-xbps-install -Sy make pkg-config cparser xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch ranger subversion htop fzf tabbed xprop wmctrl slop neovim xclip zsh &&
+xbps-install -Sy make pkg-config gobject-introspection cparser xorg xinit bspwm sxhkd lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings lxappearance picom polybar git rofi xf86-video-intel firefox feh xdg-user-dirs wget curl vim unzip bat neofetch ranger subversion htop fzf tabbed xprop wmctrl slop neovim xclip zsh &&
 
 cd ${USERHOME}
 
@@ -77,6 +77,13 @@ cd logo-ls_Linux_x86_64
 cp logo-ls /usr/local/bin
 cp logo-ls.1.gz /usr/share/man/man1/
 cd ${USERHOME}
+
+  # Clone the dotfiles repo
+git clone https://github.com/pwhite1989/void-base-install.git
+mv ~/void-base-install/bspwm-st-2.sh .
+chmod +x bspwm-st-2.sh
+
+wget https://upload.wikimedia.org/wikipedia/commons/0/02/Void_Linux_logo.svg
 
   # Make sure all folders are owned by the user
 chown -R ${USERNAME}:${USERNAME} ${USERHOME}

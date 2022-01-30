@@ -2,17 +2,20 @@
 
 xdg-user-dirs-update
 
-git clone https://github.com/pwhite1989/void-base-install.git
-#wget https://raw.githubusercontent.com/siduck/dotfiles/master/.Xresources
+mv void-base-install/* .
 
-# http://stackoverflow.com/a/844299
-expand-or-complete-with-dots() {
-  echo -n "\e[31m...\e[0m"
-    zle expand-or-complete
-      zle redisplay
-}
-zle -N expand-or-complete-with-dots
-bindkey "^I" expand-or-complete-with-dots
+  # Install node via the node version manager
+nvm install --lts &&
+
+  # Install nody-greeter... this might one day become a package: https://github.com/void-linux/void-packages/pull/34948
+git clone https://github.com/JezerM/nody-greeter.git ~/.config/nody-greeter
+cd ~/.config/nody-greeter
+nmp install &&
+npm run rebuild &&
+npm run build &&
+sudo node make install &&
+
+# http://stackoverfor-complete-with-dots
 
 DISPLAYNAME=$(xrandr -q | awk '/connected primary/{print $1}')
 DISPLAYNAME=${DISPLAYNAME:-"Virtual1"}
