@@ -231,11 +231,15 @@ chmod +x bspwm-st-2.sh
 
 wget https://upload.wikimedia.org/wikipedia/commons/0/02/Void_Linux_logo.svg
 
+  #ToDo 
+  # Make .xinitrc
+
+
   # Make sure all folders are owned by the user
 chown -R ${USERNAME}:${USERNAME} ${USERHOME}
 
   # Link the lightdm service
-ln -s /etc/sv/lightdm /var/service/
+#ln -s /etc/sv/lightdm /var/service/
 
 # Others 
 #xbps-install -Sy gobject-introspection cparser lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings xf86-video-intel ranger subversion fzf tabbed xprop wmctrl slop  &&
