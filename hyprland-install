@@ -1,0 +1,1 @@
+sudo xbps-install -S libgbm-devel libglvnd-devel libseat-devel eudev-libudev-devel libdrm-devel libinput-devel libxkbcommon-devel pixman-devel wayland-devel wayland-protocols vulkan-loader Vulkan-Headers xcb-util-errors-devel xcb-util-wm-devel xcb-util-renderutil-devel pkg-config seatd dbus elogind pango-devel cairo-devel xorg-server-xwayland
